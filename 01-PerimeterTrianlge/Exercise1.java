@@ -26,7 +26,7 @@ public class Exercise1 {
                 step++;
             }
             catch (InputMismatchException e) {
-                System.out.println("Could not parse a number. Please, try again" + e);
+                System.out.println("Could not parse a number. Please, try again");
                 input.nextLine();
             }
         }
