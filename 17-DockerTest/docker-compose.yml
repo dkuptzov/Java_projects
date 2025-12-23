@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  java-app:
+    build: .
+    container_name: my-java-app
+    volumes:
+      - ./data:/app/data  # монтирование данных
+    environment:
+      - JAVA_OPTS=-Xmx512m
+    command: ["arg1", "arg2"]  # аргументы для entrypoint скрипта
