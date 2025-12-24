@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Scanner;
 
 class Exercise3 {
+    static final String ERROR_NUMBER = "Could not parse a number. Please, try again";
+    static final String ERROR_AGE = "Incorrect input. Age <= 0";
+    static final String ERROR_PET = "Incorrect input. Unsupported pet type";
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int animalCount = readInt(input);
         List<Animal> pets = new ArrayList<>();
-        input.nextLine();
         for (int i = 0; i < animalCount; i++) {
             createAndAddPet(input, pets);
         }
@@ -22,10 +25,11 @@ class Exercise3 {
         while (true) {
             try {
                 result = input.nextInt();
+                input.nextLine();
                 break;
             }
             catch (InputMismatchException e) {
-                System.out.println("Could not parse a number. Please, try again");
+                System.out.println(ERROR_NUMBER);
                 input.nextLine();
             }
         }
@@ -39,15 +43,14 @@ class Exercise3 {
                 animal.equals("hamster") || animal.equals("guinea")) {
             String name = input.nextLine();
             int age = readInt(input);
-            input.nextLine();
             if (age <= 0) {
-                System.out.println("Incorrect input. Age <= 0");
+                System.out.println(ERROR_AGE);
             } else {
                     addAnimalToList(animal, name, age, pets);
             }
         }
         else {
-            System.out.println("Incorrect input. Unsupported pet type");
+            System.out.println(ERROR_PET);
         }
     }
 
