@@ -1,6 +1,6 @@
 abstract class Animal {
     private final String name;
-    private int age;
+    private final int age;
 
     Animal(String animalName, int animalAge) {
         name = animalName;
@@ -14,7 +14,4 @@ abstract class Animal {
     public int getAnimalAge() {
         return age;
     }
-
-    public void setAnimalAge(int newAge) { this.age = newAge; }
-
 }

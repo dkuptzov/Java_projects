@@ -2,16 +2,20 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 class Exercise4 {
+    static final String ERROR_NUMBER = "Could not parse a number. Please, try again";
+    static final String ERROR_AGE = "Incorrect input. Age <= 0";
+    static final String ERROR_PET = "Incorrect input. Unsupported pet type";
+    static final String DOG = "dog";
+    static final String CAT = "cat";
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int animalCount = readInt(input);
-        input.nextLine();
         List<Animal> pets = IntStream.range(0, animalCount)// for от 0 до animalCount
                 .mapToObj(_ -> createPet(input))// для каждого i создаем животное
                 .filter(Optional::isPresent)// только не пустые
                 .map(Optional::get)// для не пустых используем get
                 .toList(); // собираем в список
-        changeAnimalAge(pets);
         printResult(pets);
     }
 
@@ -19,10 +23,12 @@ class Exercise4 {
         /* Проверка и получение вводимых значений (цифр)
         Количество животных и их возраст*/
         try {
-            return input.nextInt();
+            int count = input.nextInt();
+            input.nextLine();
+            return count;
         } catch (InputMismatchException e) {
-            System.out.println("Could not parse a number. Please, try again");
-            input.nextLine(); // очистка некорректного ввода
+            System.out.println(ERROR_NUMBER);
+            input.nextLine();
             return readNumberRecursive(input); // рекурсивный вызов
         }
     }
@@ -34,49 +40,35 @@ class Exercise4 {
 
     public static Optional<Animal> createPet(Scanner input) {
         String animal = input.nextLine();
-        if (animal.equals("dog") || animal.equals("cat")) {
+        if (animal.equals(DOG) || animal.equals(CAT)) {
             String name = input.nextLine();
             int age = readInt(input);
-            input.nextLine();
             if (age <= 0) {
-                System.out.println("Incorrect input. Age <= 0");
+                System.out.println(ERROR_AGE);
                 return Optional.empty();
             }
-            return animal.equals("dog")
+            return animal.equals(DOG)
                     ? Optional.of(new Dog(name, age))
                     : Optional.of(new Cat(name, age));
         }
-        System.out.println("Incorrect input. Unsupported pet type");
+        System.out.println(ERROR_PET);
         return Optional.empty();
-    }
-
-    public static void addAnimalToList(String animal, String name, int age, List<Animal> pets) {
-        /* Добавляем животное в список */
-        switch (animal) {
-            case ("dog"):
-                Dog dog = new Dog(name, age);
-                pets.add(dog);
-                break;
-            case ("cat"):
-                Cat cat = new Cat(name, age);
-                pets.add(cat);
-                break;
-            default:
-                break;
-        }
-    }
-
-    public static void changeAnimalAge(List<Animal> pets) {
-        /* Изменение возраста животных, если возраст больше 10 лет */
-        pets.forEach(pet -> {
-            if (pet.getAnimalAge() > 10) {
-                pet.setAnimalAge(pet.getAnimalAge() + 1);
-            }
-        });
     }
 
     public static void printResult(List<Animal> pets) {
         /* Вывод результата */
-        pets.forEach(System.out::println);
+        List<Animal> updatePets = pets.stream()
+                .map(pet -> {
+                    if (pet.getAnimalAge() > 10) {
+                        if (pet instanceof Dog) {
+                            return new Dog(pet.getAnimalName(), pet.getAnimalAge() + 1);
+                        } else if (pet instanceof Cat) {
+                            return new Cat(pet.getAnimalName(), pet.getAnimalAge() + 1);
+                        }
+                    }
+                    return pet;
+                })
+                .toList();
+        updatePets.forEach(System.out::println);
     }
 }
