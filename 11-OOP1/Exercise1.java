@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Scanner;
 
 class Exercise1 {
-    static final String errorNumber = "Could not parse a number. Please, try again";
-    static final String errorAge = "Incorrect input. Age <= 0";
-    static final String errorPet = "Incorrect input. Unsupported pet type";
+    static final String ERROR_NUMBER = "Could not parse a number. Please, try again";
+    static final String ERROR_AGE = "Incorrect input. Age <= 0";
+    static final String ERROR_PET = "Incorrect input. Unsupported pet type";
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -31,7 +31,7 @@ class Exercise1 {
                 break;
             }
             catch (InputMismatchException e) {
-                System.out.println(errorNumber);
+                System.out.println(ERROR_NUMBER);
                 input.nextLine();
             }
         }
@@ -46,14 +46,14 @@ class Exercise1 {
             String name = input.nextLine();
             int age = readInt(input);
             if (age <= 0) {
-                System.out.println(errorAge);
+                System.out.println(ERROR_AGE);
             }
             else {
                 addAnimalToList(animal, name, age, pets);
             }
         }
         else {
-            System.out.println(errorPet);
+            System.out.println(ERROR_PET);
         }
     }
 
