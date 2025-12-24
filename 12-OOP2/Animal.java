@@ -21,5 +21,5 @@ abstract class Animal {
         return weight;
     }
 
-    public double getFeedInfoKg() { return weight; }
+    public abstract double getFeedInfoKg();
 }

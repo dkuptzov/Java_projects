@@ -1,4 +1,6 @@
 class Cat extends Animal {
+    public final double catMultiplier = 0.1;
+
     Cat(String animalName, int animalAge, double animalWeight) {
         super(animalName, animalAge, animalWeight);
     }
@@ -12,6 +14,6 @@ class Cat extends Animal {
     }
 
     public double getFeedInfoKg() {
-        return (getAnimalWeight() * 0.1);
+        return (getAnimalWeight() * catMultiplier);
     }
 }
