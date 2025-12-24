@@ -14,6 +14,4 @@ public abstract class Animal {
     public int getAnimalAge() {
         return age;
     }
-
-//    public abstract double goToWalk() throws InterruptedException;
 }
