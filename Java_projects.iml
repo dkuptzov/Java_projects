@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/01-PerimeterTrianlge" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/02-WhatsTime" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/03-Fibo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/100-Leetcode" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/04-Avg" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/05-FirtsEqualLast" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/06-SoftByChange" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/07-MinMaxInOutFile" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/08-Sequence" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/09-StringFilterLookingSubstring" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/10-StreamAPI" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
