@@ -5,6 +5,18 @@ import java.lang.reflect.Type;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/*
+У вас есть переменные n и items, которые содержат входные пользовательские данные.
+items - список из элементов целых чисел.
+Напишите код, который перемещает элементы списка items из начала массива в конец списка и записывается результат в переменную result.
+n - число элементов которые необходимо переместить.
+
+Sample Input:
+3 | [1, 3, 2, 5, 9, 8, 1, 2]
+Sample Output:
+5, 9, 8, 1, 2, 1, 3, 2
+ */
+
 public class Task524 {
     public static void main(String[] args) {
         Pair2<Integer, List<Integer>> input = readInput();

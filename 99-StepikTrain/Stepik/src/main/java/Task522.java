@@ -4,6 +4,18 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.*;
 
+/*
+У вас есть переменная data, которая содержит входные пользовательские данные.
+data - двумерный список из элементов целых чисел.
+Напишите код, который находит минимальное число в двумерном списке произвольного
+размера и записывает результат в переменную result.
+
+Sample Input:
+[[2, 3, 1],[4, 42, 6],[7, 8, 9]]
+Sample Output:
+1
+ */
+
 public class Task522 {
     public static void main(String[] args) {
         List<List<Integer>> data = readInput();
